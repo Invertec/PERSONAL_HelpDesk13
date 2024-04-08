@@ -317,9 +317,8 @@ $(document).on("click","#btntodo", function(){
    } 
 });
 
-function listardatatable(tick_titulo,cat_id,prio_id,est_id){
-    
-    tabla=$('#ticket_data').dataTable({
+function listardatatable(tick_titulo, cat_id, prio_id, est_id) {
+    $('#ticket_data').dataTable({
         "aProcessing": true,
         "aServerSide": true,
         dom: 'Bfrtip',
@@ -327,51 +326,57 @@ function listardatatable(tick_titulo,cat_id,prio_id,est_id){
         lengthChange: false,
         colReorder: true,
         buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-                ],
-                "ajax":{
-                    url: '../../controller/ticket.php?op=listar_filtro',
-                    type : "post",
-                    dataType : "json",
-                    data:{ tick_titulo:tick_titulo, cat_id:cat_id, prio_id:prio_id, est_id:est_id},
-                    error: function(e){
-                        console.log(e.responseText);
-                    }
-                },                
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
+        "ajax": {
+            url: '../../controller/ticket.php?op=listar_filtro',
+            type: "post",
+            dataType: "json",
+            data: {
+                tick_titulo: tick_titulo,
+                cat_id: cat_id,
+                prio_id: prio_id,
+                est_id: est_id
+            },
+            error: function(e) {
+                console.log(e.responseText);
+            }
+        },
         "bDestroy": true,
         "responsive": true,
-        "bInfo":true,
+        "bInfo": true,
         "iDisplayLength": 10,
         "autoWidth": false,
         "language": {
-            "sProcessing":     "Procesando...",
-            "sLengthMenu":     "Mostrar _MENU_ registros",
-            "sZeroRecords":    "No se encontraron resultados",
-            "sEmptyTable":     "Ningún dato disponible en esta tabla",
-            "sInfo":           "Mostrando un total de _TOTAL_ registros",
-            "sInfoEmpty":      "Mostrando un total de 0 registros",
-            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-            "sInfoPostFix":    "",
-            "sSearch":         "Buscar:",
-            "sUrl":            "",
-            "sInfoThousands":  ",",
+            "sProcessing": "Procesando...",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sZeroRecords": "No se encontraron resultados",
+            "sEmptyTable": "Ningún dato disponible en esta tabla",
+            "sInfo": "Mostrando un total de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando un total de 0 registros",
+            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sSearch": "Buscar:",
+            "sUrl": "",
+            "sInfoThousands": ",",
             "sLoadingRecords": "Cargando...",
             "oPaginate": {
-                "sFirst":    "Primero",
-                "sLast":     "Último",
-                "sNext":     "Siguiente",
+                "sFirst": "Primero",
+                "sLast": "Último",
+                "sNext": "Siguiente",
                 "sPrevious": "Anterior"
             },
             "oAria": {
-                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
                 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
             }
-        }     
+        }
     }).DataTable().ajax.reload();
 }
+
 
 
 function listardatatablecomp(tick_titulo,prio_id){
