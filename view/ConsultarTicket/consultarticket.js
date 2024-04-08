@@ -142,7 +142,7 @@ $(document).ready(function(){
             }     
         }).DataTable(); 
     }else if (rol_id == 2) {
-        /* $('#viewadmin').hide(); */
+        $('#viewadmin').hide();
         
     var tick_titulo = $('#tick_titulo').val();
     var cat_id = $('#cat_id').val();
