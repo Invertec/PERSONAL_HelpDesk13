@@ -7,7 +7,6 @@
 <head>
     <?php require_once("../MainHead/head.php");?>
 	<title>DiegoVidal</>::Consultar Ticket</title>
-	<meta name="csrf-token" content="{{ csrf_token() }}"></meta>
 </head>
 <body class="with-side-menu">
 
@@ -22,6 +21,7 @@
 		<div class="container-fluid">
 
 			<header class="section-header">
+			<meta name="csrf-token" content="{{ csrf_token() }}"></meta>
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
