@@ -332,15 +332,25 @@ function listardatatable(tick_titulo,cat_id,prio_id,est_id){
                 'csvHtml5',
                 'pdfHtml5'
                 ],
-        "ajax":{
-            url: '../../controller/ticket.php?op=listar_filtro',
-            type : "post",
-            dataType : "json",
-            data:{ tick_titulo:tick_titulo, cat_id:cat_id, prio_id:prio_id, est_id:est_id},
-            error: function(e){
-                console.log(e.responseText);
-            }
-        },
+                "ajax":({
+                    url: '../../controller/ticket.php?op=listar_filtro',
+                    method: "POST",
+                    dataType: "json",
+                    data: {
+                        tick_titulo: tick_titulo,
+                        cat_id: cat_id,
+                        prio_id: prio_id,
+                        est_id: est_id
+                    },
+                    success: function(response) {
+                        // Manejar la respuesta exitosa aquí
+                        console.log(response);
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        // Manejar errores aquí
+                        console.error("Error en la solicitud AJAX:", textStatus, errorThrown);
+                    }
+                }),                
         "bDestroy": true,
         "responsive": true,
         "bInfo":true,
