@@ -7,7 +7,7 @@
         protected function Conexion(){
             try {
                 //Local
-				$conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=bd13","root",""); 
+				$conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=bd1","root",""); 
                 /*$conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=bd3","administrador","Invertek24_");*/
  
 				return $conectar;
