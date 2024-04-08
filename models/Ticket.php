@@ -323,14 +323,15 @@
             return $resultado=$sql->fetchAll();
         }
 
-        public function filtrar_ticket($tick_titulo,$cat_id,$prio_id){
+        public function filtrar_ticket($tick_titulo,$cat_id,$usu_id,$prio_id){
             $conectar= parent::conexion();
             parent::set_names();
             $sql="call filtrar_ticket (?,?,?)";
             $sql=$conectar->prepare($sql);
             $sql->bindValue(1, "%".$tick_titulo."%");
             $sql->bindValue(2, $cat_id);
-            $sql->bindValue(3, $prio_id);
+            $sql->bindValue(3, $usu_id);
+            $sql->bindValue(4, $prio_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
 

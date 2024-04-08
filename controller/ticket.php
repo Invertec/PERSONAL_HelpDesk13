@@ -345,7 +345,7 @@
             break;
 
         case "listar_filtro":
-            $datos=$ticket->filtrar_ticket($_POST["tick_titulo"],$_POST["cat_id"],$_POST["prio_id"]);
+            $datos=$ticket->filtrar_ticket($_POST["tick_titulo"],$_POST["cat_id"],$_POST["usu_id"],$_POST["prio_id"]);
             $data= Array();
             foreach($datos as $row){
                 $sub_array = array();
