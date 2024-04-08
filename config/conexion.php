@@ -8,7 +8,7 @@
             try {
                 //Local
 				/* $conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=bd13","root","");  */
-                $conectar = $this->dbh = new PDO("mysql:local=localhost;dbname=bd1","administrador","Invertek24_");
+                $conectar = $this->dbh = new PDO("mysql:host=localhost;dbname=bd1","administrador","Invertek24_");
  
 				return $conectar;
 			} catch (Exception $e) {
