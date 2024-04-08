@@ -318,6 +318,11 @@ $(document).on("click","#btntodo", function(){
 });
 
 function listardatatable(tick_titulo,cat_id,prio_id,est_id){
+    $.ajaxSetup({
+        headers:{
+            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+        }
+    });
     tabla=$('#ticket_data').dataTable({
         "aProcessing": true,
         "aServerSide": true,
