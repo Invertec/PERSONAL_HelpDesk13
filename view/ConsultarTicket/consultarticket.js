@@ -317,61 +317,68 @@ $(document).on("click","#btntodo", function(){
    } 
 });
 
-function listardatatable(tick_titulo,cat_id,prio_id,est_id){
-    
-    tabla=$('#ticket_data').dataTable({
-        "aProcessing": true,
-        "aServerSide": true,
-        dom: 'Bfrtip',
+$(document).ready(function() {
+    var tabla = $('#ticket_data').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "dom": 'Bfrtip',
         "searching": true,
-        lengthChange: false,
-        colReorder: true,
-        buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-                ],
-                "ajax":{
-                    url: '../../controller/ticket.php?op=listar_filtro',
-                    type : "post",
-                    dataType : "json",
-                    data:{ tick_titulo:tick_titulo, cat_id:cat_id, prio_id:prio_id, est_id:est_id},
-                    error: function(e){
-                        console.log(e.responseText);
-                    }
-                },                
-        "bDestroy": true,
+        "lengthChange": false,
+        "colReorder": true,
+        "buttons": [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
+        "ajax": {
+            "url": '../../controller/ticket.php?op=listar_filtro',
+            "type": "POST",
+            "dataType": "json",
+            "data": function(d) {
+                return {
+                    tick_titulo: $('#tick_titulo').val(),
+                    cat_id: $('#cat_id').val(),
+                    prio_id: $('#prio_id').val(),
+                    est_id: $('#est_id').val()
+                };
+            },
+            "error": function(e) {
+                console.log(e.responseText);
+            }
+        },
+        "destroy": true,
         "responsive": true,
-        "bInfo":true,
-        "iDisplayLength": 10,
+        "info": true,
+        "pageLength": 10,
         "autoWidth": false,
         "language": {
-            "sProcessing":     "Procesando...",
-            "sLengthMenu":     "Mostrar _MENU_ registros",
-            "sZeroRecords":    "No se encontraron resultados",
-            "sEmptyTable":     "Ningún dato disponible en esta tabla",
-            "sInfo":           "Mostrando un total de _TOTAL_ registros",
-            "sInfoEmpty":      "Mostrando un total de 0 registros",
-            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-            "sInfoPostFix":    "",
-            "sSearch":         "Buscar:",
-            "sUrl":            "",
-            "sInfoThousands":  ",",
-            "sLoadingRecords": "Cargando...",
-            "oPaginate": {
-                "sFirst":    "Primero",
-                "sLast":     "Último",
-                "sNext":     "Siguiente",
-                "sPrevious": "Anterior"
+            "processing":     "Procesando...",
+            "lengthMenu":     "Mostrar _MENU_ registros",
+            "zeroRecords":    "No se encontraron resultados",
+            "emptyTable":     "Ningún dato disponible en esta tabla",
+            "info":           "Mostrando un total de _TOTAL_ registros",
+            "infoEmpty":      "Mostrando un total de 0 registros",
+            "infoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "infoPostFix":    "",
+            "search":         "Buscar:",
+            "url":            "",
+            "infoThousands":  ",",
+            "loadingRecords": "Cargando...",
+            "paginate": {
+                "first":    "Primero",
+                "last":     "Último",
+                "next":     "Siguiente",
+                "previous": "Anterior"
             },
-            "oAria": {
-                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            "aria": {
+                "sortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sortDescending": ": Activar para ordenar la columna de manera descendente"
             }
-        }     
+        }
     }).DataTable().ajax.reload();
-}
+});
+
 
 
 
