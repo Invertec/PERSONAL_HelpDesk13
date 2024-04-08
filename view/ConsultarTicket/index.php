@@ -4,6 +4,7 @@
 ?>
 <!DOCTYPE html>
 <html>
+<head>
     <?php require_once("../MainHead/head.php");?>
 	<title>DiegoVidal</>::Consultar Ticket</title>
 </head>
