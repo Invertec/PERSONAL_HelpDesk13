@@ -410,7 +410,7 @@
                 $sub_array[] = '<button type="button" onClick="ver('.$row["tick_id"].');"  id="'.$row["tick_id"].'" class="btn btn-inline btn-primary btn-sm ladda-button">Ver ticket</button>';
                 $data[] = $sub_array;
             }
-
+            
             $results = array(
                 "sEcho"=>1,
                 "iTotalRecords"=>count($data), 

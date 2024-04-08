@@ -318,11 +318,7 @@ $(document).on("click","#btntodo", function(){
 });
 
 function listardatatable(tick_titulo,cat_id,prio_id,est_id){
-    $.ajaxSetup({
-        headers:{
-            'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    
     tabla=$('#ticket_data').dataTable({
         "aProcessing": true,
         "aServerSide": true,
@@ -341,6 +337,7 @@ function listardatatable(tick_titulo,cat_id,prio_id,est_id){
             type : "post",
             dataType : "json",
             data:{ tick_titulo:tick_titulo, cat_id:cat_id, prio_id:prio_id, est_id:est_id},
+            headers:{'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')},
             error: function(e){
                 console.log(e.responseText);
             }
