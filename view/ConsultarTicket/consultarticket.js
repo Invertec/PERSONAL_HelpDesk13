@@ -334,23 +334,12 @@ function listardatatable(tick_titulo,cat_id,prio_id,est_id){
                 ],
                 "ajax":{
                     url: '../../controller/ticket.php?op=listar_filtro',
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        tick_titulo: tick_titulo,
-                        cat_id: cat_id,
-                        prio_id: prio_id,
-                        est_id: est_id
-                    },
-                    success: function(response) {
-                        // Manejar la respuesta exitosa aquí
-                        console.log(response);
-                        // Actualizar la tabla con los datos recibidos
-                    },
-                    error: function(xhr, status, error) {
-                        // Manejar errores aquí
-                        console.error(xhr.responseText);
-                    }   
+                    type : "POST",
+                    dataType : "json",
+                    data:{ tick_titulo:tick_titulo, cat_id:cat_id, prio_id:prio_id, est_id:est_id},
+                    error: function(e){
+                        console.log(e.responseText);
+                    }
                 },                
         "bDestroy": true,
         "responsive": true,
