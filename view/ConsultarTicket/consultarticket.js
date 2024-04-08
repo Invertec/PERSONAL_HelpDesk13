@@ -342,9 +342,15 @@ function listardatatable(tick_titulo,cat_id,prio_id,est_id){
                         prio_id: prio_id,
                         est_id: est_id
                     },
-                    error: function(e){
-                        console.log(e.responseText);
-                    }    
+                    success: function(response) {
+                        // Manejar la respuesta exitosa aquí
+                        console.log(response);
+                        // Actualizar la tabla con los datos recibidos
+                    },
+                    error: function(xhr, status, error) {
+                        // Manejar errores aquí
+                        console.error(xhr.responseText);
+                    }   
                 },                
         "bDestroy": true,
         "responsive": true,
