@@ -317,71 +317,44 @@ $(document).on("click","#btntodo", function(){
    } 
 });
 
-function listardatatable(tick_titulo,cat_id,prio_id,est_id){
-    
-    tabla=$('#ticket_data').dataTable({
-        "aProcessing": true,
-        "aServerSide": true,
-        dom: 'Bfrtip',
-        "searching": true,
-        lengthChange: false,
-        colReorder: true,
-        buttons: [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5'
-                ],
-                "ajax":({
-                    url: '../../controller/ticket.php?op=listar_filtro',
-                    method: "POST",
-                    dataType: "json",
-                    data: {
-                        tick_titulo: tick_titulo,
-                        cat_id: cat_id,
-                        prio_id: prio_id,
-                        est_id: est_id
-                    },
-                    success: function(response) {
-                        // Manejar la respuesta exitosa aquí
-                        console.log(response);
-                    },
-                    error: function(xhr, textStatus, errorThrown) {
-                        // Manejar errores aquí
-                        console.error("Error en la solicitud AJAX:", textStatus, errorThrown);
-                    }
-                }),                
-        "bDestroy": true,
-        "responsive": true,
-        "bInfo":true,
-        "iDisplayLength": 10,
-        "autoWidth": false,
-        "language": {
-            "sProcessing":     "Procesando...",
-            "sLengthMenu":     "Mostrar _MENU_ registros",
-            "sZeroRecords":    "No se encontraron resultados",
-            "sEmptyTable":     "Ningún dato disponible en esta tabla",
-            "sInfo":           "Mostrando un total de _TOTAL_ registros",
-            "sInfoEmpty":      "Mostrando un total de 0 registros",
-            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-            "sInfoPostFix":    "",
-            "sSearch":         "Buscar:",
-            "sUrl":            "",
-            "sInfoThousands":  ",",
-            "sLoadingRecords": "Cargando...",
-            "oPaginate": {
-                "sFirst":    "Primero",
-                "sLast":     "Último",
-                "sNext":     "Siguiente",
-                "sPrevious": "Anterior"
+function listardatatable(tick_titulo, cat_id, prio_id, est_id) {
+    tabla = $('#ticket_data').DataTable({
+        "processing": true, // Indicador de procesamiento
+        "serverSide": true, // Procesamiento en el servidor
+        "searching": true, // Habilitar búsqueda
+        "lengthChange": false, // Desactivar cambio de longitud de página
+        "colReorder": true, // Reordenamiento de columnas
+        "buttons": [ // Botones de exportación
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ],
+        "ajax": {
+            url: '../../controller/ticket.php?op=listar_filtro', // Ruta al archivo PHP en el servidor
+            type: "POST", // Método HTTP
+            dataType: "json", // Tipo de datos esperados
+            data: { // Datos enviados al servidor
+                tick_titulo: tick_titulo,
+                cat_id: cat_id,
+                prio_id: prio_id,
+                est_id: est_id
             },
-            "oAria": {
-                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            error: function(e) { // Manejo de errores
+                console.log(e.responseText);
             }
-        }     
-    }).DataTable().ajax.reload();
+        },
+        "destroy": true, // Destruir tabla antes de recrearla
+        "responsive": true, // Diseño responsivo
+        "info": true, // Mostrar información
+        "displayLength": 10, // Número de registros por página
+        "autoWidth": false, // Ancho automático
+        "language": { // Configuración de idioma
+            // Aquí puedes personalizar los mensajes y etiquetas según tus necesidades
+        }
+    }).ajax.reload(); // Recargar la tabla después de crearla
 }
+
 
 function listardatatablecomp(tick_titulo,prio_id){
     tabla=$('#ticket_data').dataTable({
