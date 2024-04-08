@@ -21,7 +21,6 @@
 		<div class="container-fluid">
 
 			<header class="section-header">
-			<meta name="csrf-token" content="{{ csrf_token() }}"></meta>
 				<div class="tbl">
 					<div class="tbl-row">
 						<div class="tbl-cell">
