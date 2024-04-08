@@ -507,5 +507,5 @@ function limpiar(){
         "</table>"
     );
 }
-
+<meta name="csrf-token" content="{{ csrf_token() }}"></meta>
 init();
