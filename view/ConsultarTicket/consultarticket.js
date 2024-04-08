@@ -143,6 +143,7 @@ $(document).ready(function(){
         }).DataTable(); 
     }else if (rol_id == 2) {
         $('#viewadmin').hide();
+        $('#viewuser').hide();
     var tick_titulo = $('#tick_titulo').val();
     var cat_id = $('#cat_id').val();
     var prio_id = $('#prio_id').val();
