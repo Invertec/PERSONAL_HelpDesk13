@@ -334,7 +334,7 @@ function listardatatable(tick_titulo,cat_id,prio_id,est_id){
                 ],
                 "ajax":{
                     url: 'http://192.168.1.196/controller/ticket.php?op=listar_filtro',
-                    type : "POST",
+                    type : "post",
                     dataType : "json",
                     data:{ tick_titulo:tick_titulo, cat_id:cat_id, prio_id:prio_id, est_id:est_id},
                     error: function(e){
