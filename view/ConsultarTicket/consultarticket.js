@@ -347,7 +347,7 @@ function listardatatable(tick_titulo,cat_id,prio_id,est_id){
         "iDisplayLength": 10,
         "autoWidth": false,
         "language": {
-            /* "sProcessing":     "Procesando...",
+            "sProcessing":     "Procesando...",
             "sLengthMenu":     "Mostrar _MENU_ registros",
             "sZeroRecords":    "No se encontraron resultados",
             "sEmptyTable":     "Ningún dato disponible en esta tabla",
@@ -358,7 +358,7 @@ function listardatatable(tick_titulo,cat_id,prio_id,est_id){
             "sSearch":         "Buscar:",
             "sUrl":            "",
             "sInfoThousands":  ",",
-            "sLoadingRecords": "Cargando...", */
+            "sLoadingRecords": "Cargando...",
             "oPaginate": {
                 "sFirst":    "Primero",
                 "sLast":     "Último",
