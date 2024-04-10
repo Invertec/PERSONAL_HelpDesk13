@@ -23,7 +23,7 @@
 
         public static function ruta(){
             //Local
-            return "http://localhost:80/PERSONAL_HelpDesk13/";
+            return "http://localhost:80/";
 
 		}
 
